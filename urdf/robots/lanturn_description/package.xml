@@ -3,8 +3,8 @@
   <name>lanturn_description</name>
   <version>3.1.1</version>
   <description>The lanturn_description package</description>
-  <author email="vsolis13@calstatela.edu">Victor Solis>
-  <author email="umilca@calstatela.edu">Milca Ucelo>
+  <author email="vsolis13@calstatela.edu">Victor Solis</author>
+  <author email="umilca@calstatela.edu">Milca Ucelo</author>
   <license>Apache2</license>
   <buildtool_depend>catkin</buildtool_depend>
   <export>
