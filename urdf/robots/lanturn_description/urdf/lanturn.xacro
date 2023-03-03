@@ -138,33 +138,37 @@
     </xacro:thruster_module_first_order_basic_fcn_macro>
   </xacro:macro>
 
-  <!-- Port-Aft -->
+  <!-- Thruster 0 - Vertical Front Right -->
   <xacro:thruster_macro thruster_id="0">
-    <origin xyz="-1.2 0.415 0.09" rpy="${0*d2r} ${0*d2r} ${-150.0*d2r}"/>
+    <origin xyz="-0.3872 0.06294 0.22092" rpy="${0*d2r} ${0*d2r} ${-30.0*d2r}"/>
   </xacro:thruster_macro>
-  <!-- Starboard-Aft -->
+  <!-- Thruster 1 - Horizontal Front Right-->
   <xacro:thruster_macro thruster_id="1">
-    <origin xyz="-1.2 -0.41 0.09" rpy="${0*d2r} ${0*d2r} ${150.0*d2r}"/>
+    <origin xyz="-0.29064 0.06710 0.15054" rpy="${0*d2r} ${0*d2r} ${-150.0*d2r}"/>
   </xacro:thruster_macro>
-  <!-- Port-Forward -->
+  <!-- Thruster 2 - Vertical Back Right -->
   <xacro:thruster_macro thruster_id="2">
-    <origin xyz="0.95 0.56 -0.61" rpy="${0*d2r} ${0*d2r} ${-30.0*d2r}"/>
+    <origin xyz="-0.38659 0.06199 -0.23044" rpy="${0*d2r} ${0*d2r} ${30.0*d2r}"/>
   </xacro:thruster_macro>
-  <!-- Starboard-Forward -->
+  <!-- Thruster 3 - Horizontal Back Right-->
   <xacro:thruster_macro thruster_id="3">
-    <origin xyz="0.95 -0.56 -0.61" rpy="${0*d2r} ${0*d2r} ${30.0*d2r}"/>
+    <origin xyz="-0.28470 0.06560 -0.016626" rpy="${0*d2r} ${0*d2r} ${150.0*d2r}"/>
   </xacro:thruster_macro>
-  <!-- Port-Forward-Vertical -->
+  <!-- Thruster 4 - Vertical Back Left -->
   <xacro:thruster_macro thruster_id="4">
-    <origin xyz="1.0 0.4 0.5" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
+    <origin xyz="0.3965 0.06271 -0.23105" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
-  <!-- Starboard-Forward-Vertical -->
+  <!-- Thruster 5 - Horizontal Back Left -->
   <xacro:thruster_macro thruster_id="5">
-    <origin xyz="1.0 -0.4 0.5" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
+    <origin xyz="0.29505 0.06907 -0.16581" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
-  <!-- Aft-Vertical -->
+  <!-- Thruster 6 - Vertical Front Left -->
   <xacro:thruster_macro thruster_id="6">
-    <origin xyz="-1.25 0.0 0.65" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
+    <origin xyz="0.39685 0.06564 0.22015" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
+  </xacro:thruster_macro>
+  <!-- Thruster 7 - Horizontal Front Left -->
+  <xacro:thruster_macro thruster_id="7">
+    <origin xyz="0.30146 0.06198 0.14961" rpy="${0*d2r} ${90.0*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
 
  <!-- Default joint state publisher -->
