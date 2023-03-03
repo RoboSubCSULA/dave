@@ -3,7 +3,7 @@
   <arg name="gui" default="true"/>
   <arg name="paused" default="false"/>
   <arg name="world_name" default="$(find dave_worlds)/worlds/dave_ocean_waves.world"/>
-  <arg name="namespace" default="lanturn"/>
+  <arg name="namespace" default="wailord"/>
   <arg name="velocity_control" default="true"/>
   <arg name="joy_id" default="0"/>
   <arg name="debug" default="false"/>
@@ -61,20 +61,20 @@
                   position: [0, 1000, -50]
     </rosparam>
   </node>
-  <include file="$(find lanturn_description)/launch/upload_lanturn.launch"/>
-  <include file="$(find dave_nodes)/launch/lanturn_thrusterop.launch">
+  <include file="$(find wailord_description)/launch/upload_wailord.launch"/>
+  <include file="$(find dave_nodes)/launch/wailord_thrusterop.launch">
     <arg name="joy_id" value="$(arg joy_id)"/>
     <arg name="namespace" value="$(arg namespace)"/>
   </include>
-  <node name="spawn_lanturn" pkg="gazebo_ros" type="spawn_model"
+  <node name="spawn_wailord" pkg="gazebo_ros" type="spawn_model"
         respawn="false" output="screen"
-        args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg namespace) -param /$(arg namespace)/lanturn"/>
+        args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg namespace) -param /$(arg namespace)/wailord"/>
 
   <!-- A joint state publisher plugin already is started with the model,
        no need to use the default joint state publisher. -->
   <!-- Robot state publisher subscribes to the custom joint state publisher -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
-    <remap from="robot_description" to="/$(arg namespace)/lanturn"/>
+    <remap from="robot_description" to="/$(arg namespace)/wailord"/>
   </node>
 
 </launch>
