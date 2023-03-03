@@ -4,9 +4,9 @@
   <version>3.1.1</version>
   <description>The lanturn_description package</description>
   <author email="vsolis13@calstatela.edu">Victor Solis</author>
-  <author email="umilca@calstatela.edu">Milca Ucelo</author>
+  <author email="mucelo@calstatela.edu">Milca Ucelo</author>
   <maintainer email="vsolis13@calstatela.edu">Victor Solis</maintainer>
-  <maintainer email="umilca@calstatela.edu">Milca Ucelo</maintainer>
+  <maintainer email="mucelo@calstatela.edu">Milca Ucelo</maintainer>
   <license>Apache2</license>
   <buildtool_depend>catkin</buildtool_depend>
   <export>
