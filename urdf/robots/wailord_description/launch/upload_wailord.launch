@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="namespace" default="wailord"/>
+  <arg name="debug" default="false"/>
+     <param name="/$(arg namespace)/wailord"
+            command="$(find xacro)/xacro '$(find wailord_description)/urdf/wailord.xacro'
+		             debug:=$(arg debug)
+                     namespace:=$(arg namespace)
+                     inertial_reference_frame:=world" />
+</launch>
+
