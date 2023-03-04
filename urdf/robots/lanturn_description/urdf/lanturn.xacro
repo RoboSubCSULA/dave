@@ -35,13 +35,13 @@
         izz="2790.8"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.9" rpy="0 0 1.5708"/>
+      <origin xyz="0 0 0" rpy="0 0 1.5708"/>
       <geometry>
         <mesh filename="package://lanturn_description/meshes/lanturn.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 -0.9" rpy="0 0 1.5708"/>
+      <origin xyz="0 0 0" rpy="0 0 1.5708"/>
       <geometry>
         <mesh filename="package://lanturn_description/meshes/lanturn.dae" scale="1 1 1"/>
       </geometry>
@@ -114,7 +114,7 @@
  <!-- Various thruster models -->
  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/thruster_snippets.xacro"/>
  <!-- Substitute the ECA A9 prop mesh for the larger uuv_descriptions one -->
- <xacro:property name="prop_mesh_file" value="file://$(find eca_a9_description)/mesh/eca_a9_propeller.dae"/>
+ <xacro:property name="prop_mesh_file" value="file://$(find lanturn_description)/meshes/t200_prop.dae"/>
 
 
   <!-- Thruster joint and link snippet
@@ -145,19 +145,19 @@
 
   <!-- Thruster 0 - Vertical Starboard-Forward -->
   <xacro:thruster_macro thruster_id="0">
-    <origin xyz="0.385 0.22 -0.859" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
+    <origin xyz="0.385 0.22 0.041" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
   <!-- Thruster 1 - Vertical Starboard-Aft -->
   <xacro:thruster_macro thruster_id="1">
-    <origin xyz="0.385 -0.22 -0.859" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
+    <origin xyz="0.385 -0.22 0.041" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
   <!-- Thruster 2 - Vertical Port-Forward -->
   <xacro:thruster_macro thruster_id="2">
-    <origin xyz="-0.385 0.22 -0.859" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
+    <origin xyz="-0.385 0.22 0.041" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
   <!-- Thruster 3 - Vertical Port-Aft -->
   <xacro:thruster_macro thruster_id="3">
-    <origin xyz="-0.385 -0.22 -0.859" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
+    <origin xyz="-0.385 -0.22 0.041" rpy="${0*d2r} ${-90*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
 
  <!-- Default joint state publisher -->
