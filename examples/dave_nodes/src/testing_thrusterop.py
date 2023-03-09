@@ -9,15 +9,9 @@ from sensor_msgs.msg import Joy
 
 from uuv_gazebo_ros_plugins_msgs.msg import FloatStamped
 
-
-# TODO: Fix this to work with Lanturn Thruster Layout
 class ThrusterOp:
-    def __init__(self, namespace='lanturn'):
-        # Thruster gains
-        self.gain_dict = dict()
-        self.gain_dict[1] = [1000.0, 1000.0, 1000.0, 1000.0]
+    def __init__(self, namespace='smilodon'):
         self.gain = 1000.0
-
         # Joystick to thruster i.d. mapping
         # Keys are the joystick axes, publishers
         self.joy2thrust = dict()
@@ -40,8 +34,7 @@ class ThrusterOp:
             if ii in self.joy2thrust.keys():
                 msg.data = aa*self.gain
                 self.joy2thrust[ii].publish(msg)
-
-
+                
 if __name__ == '__main__':
     # Start the node
     node_name = os.path.splitext(os.path.basename(__file__))[0]
@@ -49,10 +42,10 @@ if __name__ == '__main__':
     rospy.loginfo('Starting [%s] node' % node_name)
 
     # Get params
-    ns = 'lanturn'
+    ns = 'smilodon'
     if rospy.has_param('~namespace'):
         ns = rospy.get_param('~namespace')
 
-    teleop = ThrusterOp(namespace=ns)
+    teleop = ThrusterOp(namespace = ns)
     rospy.spin()
     rospy.loginfo('Shutting down [%s] node' % node_name)
