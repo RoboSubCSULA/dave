@@ -16,12 +16,10 @@ class ThrusterOp:
         # Joystick to thruster i.d. mapping
         # Keys are the joystick axes, publishers
         self.joy2thrust = dict()
-        self.joy2thrust[1] = rospy.Publisher('/%s/thrusters/%d/input'%(namespace,0), FloatStamped, queue_size=1)
-        self.joy2thrust[1] = rospy.Publisher('/%s/thrusters/%d/input'%(namespace,1), FloatStamped, queue_size=1)
-        self.joy2thrust[1] = rospy.Publisher('/%s/thrusters/%d/input'%(namespace,2), FloatStamped, queue_size=1)
-        self.joy2thrust[1] = rospy.Publisher('/%s/thrusters/%d/input'%(namespace,3), FloatStamped, queue_size=1)
-        self.joy2thrust[0] = rospy.Publisher('/%s/thrusters/%d/input'%(namespace,4), FloatStamped, queue_size=1)
-        self.joy2thrust[3] = rospy.Publisher('/%s/thrusters/%d/input'%(namespace,5), FloatStamped, queue_size=1)
+        self.joy2thrust[1] = [rospy.Publisher('/%s/thrusters/%d/input'%(namespace,0), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,1), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,2), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,3), FloatStamped, queue_size=1)]
 
         self.joy_sub = rospy.Subscriber('joy', Joy, self.joy_callback)
 
@@ -34,7 +32,8 @@ class ThrusterOp:
         for aa, ii in zip(joy.axes, range(len(joy.axes))):
             if ii in self.joy2thrust.keys():
                 msg.data = aa*self.gain
-                self.joy2thrust[ii].publish(msg)
+                for pub in self.joy2thrust[ii]:
+                    pub.publish(msg)
 
 
 if __name__ == '__main__':
