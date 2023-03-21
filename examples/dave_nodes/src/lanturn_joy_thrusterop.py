@@ -13,19 +13,38 @@ from uuv_gazebo_ros_plugins_msgs.msg import FloatStamped
 class ThrusterOp:
     def __init__(self, namespace='lanturn'):
         self.gain = 1000.0
-        # Joystick to thruster i.d. mapping
         # Keys are the joystick axes, publishers
         self.joy2thrust = dict()
-        self.joy2thrust[1] = [rospy.Publisher('/%s/thrusters/%d/input'%(namespace,0), FloatStamped, queue_size=1),
-                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,1), FloatStamped, queue_size=1),
+
+        # Create publishers for each thruster 1-8
+
+        # Forward
+        self.joy2thrust[0] = [rospy.Publisher('/%s/thrusters/%d/input'%(namespace,5), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,6), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,7), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,8), FloatStamped, queue_size=1)]
+
+        # Depth
+        self.joy2thrust[5] = [rospy.Publisher('/%s/thrusters/%d/input'%(namespace,1), FloatStamped, queue_size=1),
                               rospy.Publisher('/%s/thrusters/%d/input'%(namespace,2), FloatStamped, queue_size=1),
-                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,3), FloatStamped, queue_size=1)]
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,3), FloatStamped, queue_size=1),
+                              rospy.Publisher('/%s/thrusters/%d/input'%(namespace,4), FloatStamped, queue_size=1)]
 
         self.joy_sub = rospy.Subscriber('joy', Joy, self.joy_callback)
 
         rate = rospy.Rate(10)
         while not rospy.is_shutdown():
             rate.sleep()
+
+    def check_if_thruster_should_be_inverted(self, axis_id, thruster_id):
+        '''
+        Check if the output of the thrusters should be inverted to produce the
+        desired behavior.
+        '''
+        if axis_id == 0:
+            if thruster_id in [2, 4]:
+                return True
+        return False
 
     def joy_callback(self, joy):
         msg = FloatStamped()
@@ -34,6 +53,15 @@ class ThrusterOp:
                 msg.data = aa*self.gain
                 for pub in self.joy2thrust[ii]:
                     pub.publish(msg)
+
+
+
+def invert_value_from_thruster_behavior_map():
+    '''
+    Check if the output of the thrusters should be inverted to produce the
+    desired behavior.
+    '''
+
 
 
 if __name__ == '__main__':
