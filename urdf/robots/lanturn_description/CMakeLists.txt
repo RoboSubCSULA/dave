@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1.1)
-project(lanturn_description)
+project(lanturn1_description)
 
 find_package(catkin REQUIRED)
 
