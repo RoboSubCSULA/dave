@@ -3,11 +3,10 @@
   <name>lanturn_description</name>
   <version>3.1.1</version>
   <description>The lanturn_description package</description>
-  <author email="vsolis13@calstatela.edu">Victor Solis</author>
-  <author email="mucelo@calstatela.edu">Milca Ucelo</author>
-  <maintainer email="vsolis13@calstatela.edu">Victor Solis</maintainer>
-  <maintainer email="mucelo@calstatela.edu">Milca Ucelo</maintainer>
+  <author email="bbingham@nps.edu">Brian Bingham</author>
+  <maintainer email="dtdavi1@nps.edu">dtd</maintainer>
   <license>Apache2</license>
+  <author email="dtdavi1@nps.edu">dtd</author> -->
   <buildtool_depend>catkin</buildtool_depend>
   <export>
     <!-- Other tools can request additional information be placed here -->
