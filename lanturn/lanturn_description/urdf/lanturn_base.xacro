@@ -7,7 +7,7 @@
   <!-- Loading the UUV simulator ROS plugin macros -->
   <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/snippets.xacro"/>  
   <!-- Loading vehicle's specific macros -->
-  <xacro:include filename="$(find lanturn_description)/urdf/snippets.xacro"/>
+  <xacro:include filename="$(find lanturn_description)/urdf/lanturn_snippets.xacro"/>
 
   <!--
     Vehicle's parameters (remember to enter the model parameters below)

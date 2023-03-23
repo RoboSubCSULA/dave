@@ -4,7 +4,7 @@
   <xacro:arg name="namespace" default="lanturn"/>
   <!-- Include the ROV macro file -->
   <xacro:include filename="$(find lanturn_description)/urdf/lanturn_base.xacro"/>
-  <xacro:include filename="$(find lanturn_description)/urdf/lanturn_gazebo.xacro"/>
+  <xacro:include filename="$(find lanturn_description)/urdf/lanturn.gazebo.xacro"/>
 
   <!-- Create the lanturn -->
   <xacro:lanturn_base namespace="$(arg namespace)">
