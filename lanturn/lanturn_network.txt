@@ -1,0 +1,24 @@
+
+lanturn_launch/launch/dave_lanturn.launch
+    This file is main launch file for running dave with lanturn.
+    It depends on the following files that we create:
+        -> lanturn_description/launch/lanturn.launch
+
+lanturn_description/launch/lanturn.launch
+    This file is main launch file for uploading lanturn model to gazebo.
+    It depends on the following files that we create:
+        -> lanturn_description/urdf/lanturn.xacro
+
+lanturn_description/urdf/lanturn.xacro
+    This file is main urdf file that describes the lanturn model.
+    It depends on the following files that we create:
+        -> lanturn_description/urdf/lanturn_base.xacro
+        -> lanturn_description/urdf/lanturn_gazebo.xacro
+
+lanturn_description/urdf/lanturn_base.xacro
+    This file is urdf file that describes the lanturn base.
+    It depends on the following files that we create:
+        -> lanturn_description/meshes/lanturn_no_prop.dae
+        -> lanturn_description/urdf/lanturn_actuator.xacro
+        -> lanturn_description/urdf/lanturn_sensor.xacro
+
